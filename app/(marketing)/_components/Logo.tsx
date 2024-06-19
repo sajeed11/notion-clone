@@ -16,6 +16,14 @@ export const Logo = () => {
         alt='Sotion'
         width="40"
         height="40"
+        className='dark:hidden'
+      />
+      <Image
+        src='/letter-s.png'
+        alt='Sotion'
+        width="40"
+        height="40"
+        className='hidden dark:block'
       />
       <p className={cn("font-semibold", font.className)}>
         Sotion
