@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Notion Clone - A Note-Taking App
 
-## Getting Started
+This project is a clone of the popular note-taking application Notion.so. It aims to replicate core features like creating pages, nesting content blocks, and providing a rich editing experience.
 
-First, run the development server:
+The main project is from Code With Antonio channal on YouTube, so thanks to him for this perfect tutorial. You can watch to the video from here [Fullstack Notion Clone: Next.js 13, React, Convex, Tailwind | Full Course 2023](https://youtu.be/0OaDyjB9Ib8?si=dFTPBh3ncdj5_qFy)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Features (Current Implementation)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Create and manage pages with titles and content blocks.
+- Implement various content block types (text, headings, etc.).
+- Organize pages in a hierarchical structure.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Features to be Implemented (Optional)**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Drag and drop functionality for rearranging content blocks.
+- Collaboration features (real-time editing, sharing permissions).
+- Image and file uploads.
+- Version history and rollback functionality.
+- Search functionality for pages and content.
+- User accounts and authentication.
 
-## Learn More
+### Tech Stack (Replace with your specific libraries)
 
-To learn more about Next.js, take a look at the following resources:
+- Frontend: (e.g., React, Next.js)
+- Backend: (Convex)
+- Database: (Convex)
+- UI Framework: (e.g., Tailwind CSS, Shadcn UI)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Screenshots
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- The landing page ![Landing page]('/screenshots/landing-page-notion-clone-project.png')
