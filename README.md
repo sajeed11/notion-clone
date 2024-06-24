@@ -28,4 +28,6 @@ The main project is from Code With Antonio channal on YouTube, so thanks to him 
 
 ### Screenshots
 
-- The landing page ![Landing page](/screenshots/landing-page-notion-clone-project.png)
+- The landing page
+
+![Landing page](/screenshots/landing-page-notion-clone-project.png)
