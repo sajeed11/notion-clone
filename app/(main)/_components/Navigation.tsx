@@ -1,6 +1,6 @@
 "use client"
 
-import { ChevronsLeft, MenuIcon } from "lucide-react"
+import { ChevronsLeft, MenuIcon, PlusCircle } from "lucide-react"
 import { usePathname } from "next/navigation"
 import React, { ElementRef, useEffect, useRef, useState } from "react"
 import { useMediaQuery } from "usehooks-ts"
@@ -8,6 +8,7 @@ import { useMediaQuery } from "usehooks-ts"
 import { cn } from "@/lib/utils"
 
 import { UserItem } from "./UserItem"
+import { Item } from "./Item"
 
 export const Navigation = () => {
   const pathname = usePathname()
@@ -116,6 +117,11 @@ export const Navigation = () => {
         </div>
         <div>
           <UserItem />
+          <Item
+            onClick={() => { }}
+            label="New page"
+            icon={PlusCircle}
+          />
         </div>
         <div className="mt-4">
           <p>Documents</p>
