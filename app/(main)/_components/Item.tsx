@@ -3,7 +3,7 @@
 import { LucideIcon } from "lucide-react"
 
 interface ItemProps {
-  label: " string",
+  label: string,
   onClick: () => void,
   icon: LucideIcon
 }
