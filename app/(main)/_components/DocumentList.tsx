@@ -61,7 +61,7 @@ export const DocumentList = ({
         }}
         className={cn(
           "hidden text-sm font-medium text-muted-foreground",
-          expanded && "last:black",
+          expanded && "last:block",
           level === 0 && "hidden"
         )}
       >
