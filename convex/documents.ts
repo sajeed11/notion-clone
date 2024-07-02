@@ -41,9 +41,8 @@ export const create = mutation({
   handler: async (ctx, args) => {
     const identify = await ctx.auth.getUserIdentity()
 
-    if (!identify) {
+    if (!identify)
       throw new Error("Unauthenticated")
-    }
 
     const userId = identify.subject
 
@@ -53,6 +52,34 @@ export const create = mutation({
       userId,
       isArchived: false,
       isPublished: false
+    })
+
+    return document
+  }
+})
+
+export const archive = mutation({
+  args: {
+    id: v.id("documents")
+  },
+  handler: async (ctx, args) => {
+    const identify = await ctx.auth.getUserIdentity()
+
+    if (!identify)
+      throw new Error("Unauthenticated")
+
+    const userId = identify.subject
+
+    const existingDoc = await ctx.db.get(args.id)
+
+    if (!existingDoc)
+      throw new Error("Document not found")
+
+    if (existingDoc.userId !== userId)
+      throw new Error("Unauthorized")
+
+    const document = await ctx.db.patch(args.id, {
+      isArchived: true
     })
 
     return document
