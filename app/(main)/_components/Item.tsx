@@ -25,6 +25,7 @@ import { Id } from "@/convex/_generated/dataModel"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { api } from "@/convex/_generated/api"
+import React from "react"
 
 interface ItemProps {
   id?: Id<"documents">,
@@ -54,6 +55,7 @@ export const Item = ({
   const { user } = useUser()
   const router = useRouter()
   const create = useMutation(api.documents.create)
+  const archive = useMutation(api.documents.archive)
 
   const handleExpand = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -80,6 +82,20 @@ export const Item = ({
       success: "New note created!",
       error: "Failed to create a new note"
     }
+  }
+
+  const onArchive = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    event.stopPropagation()
+    if (!id) return
+    const promise = archive({ id })
+
+    toast.promise(promise, {
+      loading: "Deleting note...",
+      success: "Note deleted!",
+      error: "Failed to delete note"
+    })
   }
 
   const ChevronIcon = expanded ? ChevronDown : ChevronRight
@@ -143,8 +159,8 @@ export const Item = ({
               side="right"
               forceMount
             >
-              <DropdownMenuItem onClick={() => { }}>
-                <Trash className="h-4 w-4" />
+              <DropdownMenuItem onClick={onArchive}>
+                <Trash className="h-4 w-4 mr-2" />
                 Delete
               </DropdownMenuItem>
               <DropdownMenuSeparator />
