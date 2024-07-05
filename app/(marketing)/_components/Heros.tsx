@@ -8,6 +8,7 @@ export const Heros = () => {
           <Image
             src="/girl-with-computer.png"
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-contain"
             alt="Girl with computer"
           />
@@ -16,6 +17,7 @@ export const Heros = () => {
           <Image
             src="/long-document.png"
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-contain"
             alt="Man with document"
           />
