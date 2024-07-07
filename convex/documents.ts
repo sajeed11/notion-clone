@@ -58,7 +58,7 @@ export const create = mutation({
   }
 })
 
-// Archive document
+// Archive the document
 export const archive = mutation({
   args: {
     id: v.id("documents")
@@ -180,6 +180,30 @@ export const restore = mutation({
     const document = await ctx.db.patch(args.id, options)
 
     recursiveRstore(args.id)
+
+    return document
+  }
+})
+
+export const remove = mutation({
+  args: { id: v.id("documents") },
+  handler: async (ctx, args) => {
+    const identify = await ctx.auth.getUserIdentity()
+
+    if (!identify)
+      throw new Error("Unauthenticated")
+
+    const userId = identify.subject
+
+    const existingDoc = await ctx.db.get(args.id)
+
+    if (!existingDoc)
+      throw new Error("Document not found")
+
+    if (existingDoc.userId !== userId)
+      throw new Error("Unauthorized")
+
+    const document = await ctx.db.delete(args.id)
 
     return document
   }
