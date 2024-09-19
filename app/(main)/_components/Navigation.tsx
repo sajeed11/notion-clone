@@ -2,11 +2,13 @@
 
 import React, { ElementRef, useEffect, useRef, useState } from "react"
 import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } from "lucide-react"
+import { toast } from "sonner"
+
 import { usePathname } from "next/navigation"
 import { useMediaQuery } from "usehooks-ts"
 import { useMutation } from "convex/react"
 import { useSearch } from "@/hooks/use-search"
-import { toast } from "sonner"
+import { useSettings } from "@/hooks/use-settings"
 
 import { cn } from "@/lib/utils"
 import { api } from "@/convex/_generated/api"
@@ -23,6 +25,7 @@ import { TrashBox } from "./TrashBox"
 
 export const Navigation = () => {
   const search = useSearch()
+  const settings = useSettings()
   const pathname = usePathname()
   const isMobile = useMediaQuery("(max-width: 768px)")
   const create = useMutation(api.documents.create)
@@ -147,7 +150,7 @@ export const Navigation = () => {
             isSearch
           />
           <Item
-            onClick={() => { }}
+            onClick={settings.onOpen}
             label="Settings"
             icon={Settings}
           />
