@@ -28,6 +28,14 @@ The main project is from Code With Antonio channal on YouTube, so thanks to him 
 
 ### Screenshots
 
-- The landing page
+- Landing page
 
 ![Landing page](/screenshots/landing-page-notion-clone-project.png)
+
+- Landing page with dark mode (Signed in)
+
+![Landing page with dark mode](/screenshots/landing-page-dark-mode-signed-in-notion-clone-project.png)
+
+- User documents page
+
+![User documents](/screenshots/documents-page-notion-clone-project.png)
