@@ -5,6 +5,7 @@ import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } fro
 import { usePathname } from "next/navigation"
 import { useMediaQuery } from "usehooks-ts"
 import { useMutation } from "convex/react"
+import { useSearch } from "@/hooks/use-search"
 import { toast } from "sonner"
 
 import { cn } from "@/lib/utils"
@@ -21,6 +22,7 @@ import { DocumentList } from "./DocumentList"
 import { TrashBox } from "./TrashBox"
 
 export const Navigation = () => {
+  const search = useSearch()
   const pathname = usePathname()
   const isMobile = useMediaQuery("(max-width: 768px)")
   const create = useMutation(api.documents.create)
@@ -139,7 +141,7 @@ export const Navigation = () => {
         <div>
           <UserItem />
           <Item
-            onClick={() => { }}
+            onClick={search.onOpen}
             label="Search"
             icon={Search}
             isSearch
