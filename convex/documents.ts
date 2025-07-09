@@ -280,7 +280,7 @@ export const update = mutation({
 
     const { id, ...rest } = args
 
-    const existingDoc = await ctx.db.get(id)
+    const existingDoc = await ctx.db.get(args.id)
 
     if (!existingDoc)
       throw new Error("Document not found")
@@ -291,5 +291,7 @@ export const update = mutation({
     const document = await ctx.db.patch(args.id, {
       ...rest
     })
+
+    return document
   }
 })
