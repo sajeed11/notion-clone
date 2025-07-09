@@ -1,11 +1,14 @@
 "use client"
 
+import { useQuery } from "convex/react"
+import { useParams } from "next/navigation"
+
 import { api } from "@/convex/_generated/api"
 import { Id } from "@/convex/_generated/dataModel"
-import { useQuery } from "convex/react"
+
 import { MenuIcon } from "lucide-react"
-import { useParams } from "next/navigation"
 import { Title } from "./Title"
+import { Banner } from "./Banner"
 
 interface NavbarProps {
   isCollapsed: boolean
@@ -47,6 +50,9 @@ export const Navbar = ({
           <Title initData={document} />
         </div>
       </nav>
+      {document.isArchived && (
+        <Banner documentId={document._id} />
+      )}
     </>
   )
 }
