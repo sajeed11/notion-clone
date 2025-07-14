@@ -22,6 +22,7 @@ export const Toolbar = ({ initData, preview }: ToolbarProps) => {
   const [value, setValue] = useState(initData.title);
 
   const update = useMutation(api.documents.update);
+  const removeIcon = useMutation(api.documents.removeIcon);
 
   const enableInput = () => {
     if (preview) return;
@@ -59,6 +60,12 @@ export const Toolbar = ({ initData, preview }: ToolbarProps) => {
     });
   }
 
+  const onRemoveIcon = () => {
+    removeIcon({
+      id: initData._id,
+    })
+  }
+
   return (
     <div className="pl-14 group relative">
       {!!initData.icon && !preview && (
@@ -69,7 +76,7 @@ export const Toolbar = ({ initData, preview }: ToolbarProps) => {
             </p>
           </IconPicker>
           <Button
-            onClick={() => {}}
+            onClick={onRemoveIcon}
             className="rounded-full opacity-0group-hover/icon:opacity-100 transition text-muted-foreground text-xs"
             variant="outline"
             size="icon"
@@ -97,7 +104,7 @@ export const Toolbar = ({ initData, preview }: ToolbarProps) => {
         )}
         {!initData.coverImage && !preview && (
           <Button
-            onClick={() => {}}
+            onClick={() => { }}
             className="text-muted-foreground text-xs"
             variant="outline"
             size="sm"
