@@ -52,11 +52,18 @@ export const Toolbar = ({ initData, preview }: ToolbarProps) => {
     }
   };
 
+  const onIconSelect = (icon: string) => {
+    update({
+      id: initData._id,
+      icon,
+    });
+  }
+
   return (
     <div className="pl-14 group relative">
       {!!initData.icon && !preview && (
         <div className="flex items-center gap-x-2 group/icon pt-6">
-          <IconPicker onChange={() => {}}>
+          <IconPicker onChange={onIconSelect}>
             <p className="text-6xl hover:opacity-75 transition">
               {initData.icon}
             </p>
@@ -77,7 +84,7 @@ export const Toolbar = ({ initData, preview }: ToolbarProps) => {
 
       <div className="opacity-0 group-hover:opacity-100 flex items-center gap-x-1 py-4">
         {!initData.icon && !preview && (
-          <IconPicker asChild onChange={() => {}}>
+          <IconPicker asChild onChange={onIconSelect}>
             <Button
               className="text-muted-foreground text-xs"
               variant="outline"
