@@ -270,7 +270,7 @@ export const update = mutation({
   },
 });
 
-const removeIcon = mutation({
+export const removeIcon = mutation({
   args: { id: v.id("documents") },
   handler: async (ctx, args) => {
     const identify = await ctx.auth.getUserIdentity();
